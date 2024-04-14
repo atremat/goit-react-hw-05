@@ -6,9 +6,9 @@ import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import MovieCast from "./components/MovieCast/MovieCast";
 import MovieReviews from "./components/MovieReviews/MovieReviews";
+import Navigation from "./components/Navigation/Navigation";
 
 import "./App.css";
-import Navigation from "./components/Navigation/Navigation";
 
 function App() {
   return (

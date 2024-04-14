@@ -7,6 +7,10 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 export default function Navigation() {
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(css.link, isActive && css.active);
+  };
+
   return (
     <header className={css.header}>
       <p className={css.logo}>
