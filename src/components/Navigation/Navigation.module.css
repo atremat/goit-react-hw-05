@@ -1,10 +1,22 @@
 .header {
-  border: 1px solid red;
+  background-color: rgb(3, 37, 65);
+  color: #fff;
+  display: flex;
+  padding: 15px;
+  font-size: 1.5rem;
+}
+
+.logo {
+  margin-right: 50px;
 }
 
 .link {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-right: 40px;
 }
 
 .active {
-  background-color: aqua;
+  /* background-color: aqua; */
+  color: burlywood;
 }

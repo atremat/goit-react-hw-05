@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
 import { fetchTrendingMovies } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [page, setPage] = useState(1);
@@ -33,14 +33,9 @@ export default function HomePage() {
     getTrendingMovies(page);
   }, [page]);
 
-  //output movies
-  useEffect(() => {
-    console.log("movies: ", movies);
-  }, [movies]);
-
   return (
     <main>
-      <p>Trending today</p>
+      <h1 className={css.title}>Trending today</h1>
       <MovieList movies={movies} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}

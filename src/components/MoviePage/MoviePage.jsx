@@ -4,7 +4,6 @@ import css from "./MoviePage.module.css";
 const MoviePage = ({ movie }) => {
   const {
     poster_path: posterRelative,
-    // backdrop_path: backdrop,
     title,
     overview,
     vote_average: rank,
@@ -14,7 +13,10 @@ const MoviePage = ({ movie }) => {
   } = movie;
 
   const IMG_BASE_URL = `https://image.tmdb.org/t/p/w500`;
-  const posterUrl = `${IMG_BASE_URL}${posterRelative}`;
+  const posterUrl = posterRelative
+    ? `${IMG_BASE_URL}${posterRelative}`
+    : "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
+
   const year = fullDate.slice(0, 4);
 
   return (
@@ -27,8 +29,12 @@ const MoviePage = ({ movie }) => {
             <span className={css.year}> ({year})</span>
           </h1>
 
-          <h2 className={css.rankTitle}>Rank</h2>
-          <p>{rank.toFixed(1)} / 10</p>
+          {rank !== 0 && (
+            <>
+              <h2 className={css.rankTitle}>Rank</h2>
+              <p>{rank.toFixed(1)} / 10</p>
+            </>
+          )}
 
           {budget !== 0 && (
             <>

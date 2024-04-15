@@ -5,13 +5,31 @@
   display: flex;
 }
 
+.mainInfo {
+  padding: 0 20px;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
+}
+
 .poster {
   width: 300px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.addList {
+  padding-left: 30px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
 }
 
 .link {
+  font-size: 1.2rem;
 }
 
 .active {
-  background-color: blueviolet;
+  font-size: 1.2rem;
+  color: #deb887;
 }

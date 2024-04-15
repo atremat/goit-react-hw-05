@@ -5,6 +5,7 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { fetchMovieById } from "../../services/api";
 import MoviePage from "../../components/MoviePage/MoviePage";
+import { GoBackBtn } from "../../components/GoBack/GoBackBtn";
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -17,15 +18,10 @@ export default function MovieDetailsPage() {
     getMovieById(movieId);
   }, [movieId]);
 
-  // useEffect(() => {
-  //   console.log("movie: ", movie);
-  // }, [movie]);
-
   const getMovieById = async (id) => {
     try {
       setLoading(true);
       const resData = await fetchMovieById(id);
-      // console.log("resData: ", resData);
       setMovie(resData);
     } catch (err) {
       setIsError(true);
@@ -37,6 +33,7 @@ export default function MovieDetailsPage() {
 
   return (
     <main className={css.main}>
+      <GoBackBtn />
       {movie && <MoviePage movie={movie} />}
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}

@@ -34,7 +34,7 @@ const fetchMovieById = async (id) => {
   const url = `${BASE_URL}${END_POINT}`;
 
   const response = await axios.get(url, options);
-  // console.log(response);
+  // console.log("response: ", response);
   return response.data;
 };
 
@@ -52,7 +52,7 @@ const fetchMovieReviewsById = async (id, page = 1) => {
   const url = `${BASE_URL}${END_POINT}`;
 
   const response = await axios.get(url, options);
-  console.log(response);
+  // console.log(response);
   return response.data;
 };
 

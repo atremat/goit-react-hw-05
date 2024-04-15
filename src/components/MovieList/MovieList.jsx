@@ -5,7 +5,7 @@ export default function MovieList({ movies }) {
   const location = useLocation();
 
   return (
-    <ul className={CSS.list}>
+    <ul className={css.list}>
       {movies.map(({ id, original_title }) => {
         return (
           <li key={id}>

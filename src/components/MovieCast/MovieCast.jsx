@@ -19,15 +19,11 @@ export default function MovieCast() {
     getMovieCreditById(movieId);
   }, [movieId]);
 
-  useEffect(() => {
-    console.log("movie: ", credit);
-  }, [credit]);
-
   const getMovieCreditById = async (id) => {
     try {
       setLoading(true);
       const resData = await fetchMovieCreditById(id);
-      // console.log("resData: ", resData);
+
       setCredit(resData);
     } catch (err) {
       setIsError(true);
@@ -51,7 +47,6 @@ export default function MovieCast() {
                 />
                 <h4 className={css.name}>{actor.name}</h4>
                 <p className={css.character}>Character: {actor.character}</p>
-                <hr />
               </li>
             );
           })}
