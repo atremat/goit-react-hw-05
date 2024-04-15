@@ -14,6 +14,8 @@ export default function MovieCast() {
 
   const cast = credit?.cast ?? [];
   const IMG_BASE_URL = `https://image.tmdb.org/t/p/w500`;
+  const DEFAULT_CAST_PHOTO =
+    "https://dummyimage.com/150x225/000/fff.jpg&text=no+photo";
 
   useEffect(() => {
     getMovieCreditById(movieId);
@@ -41,7 +43,11 @@ export default function MovieCast() {
             return (
               <li key={actor.id} className={css.item}>
                 <img
-                  src={IMG_BASE_URL + actor["profile_path"]}
+                  src={
+                    actor["profile_path"]
+                      ? IMG_BASE_URL + actor["profile_path"]
+                      : DEFAULT_CAST_PHOTO
+                  }
                   alt={actor.name}
                   className={css.img}
                 />
