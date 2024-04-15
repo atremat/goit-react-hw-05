@@ -51,6 +51,7 @@ export default function MovieCast() {
                 />
                 <h4 className={css.name}>{actor.name}</h4>
                 <p className={css.character}>Character: {actor.character}</p>
+                <hr />
               </li>
             );
           })}

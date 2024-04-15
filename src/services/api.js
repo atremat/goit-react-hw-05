@@ -47,8 +47,8 @@ const fetchMovieCreditById = async (id) => {
   return response.data;
 };
 
-const fetchMovieReviewsById = async (id) => {
-  const END_POINT = `/3/movie/${id}/reviews?page=1`;
+const fetchMovieReviewsById = async (id, page = 1) => {
+  const END_POINT = `/3/movie/${id}/reviews?page=${page}`;
   const url = `${BASE_URL}${END_POINT}`;
 
   const response = await axios.get(url, options);
