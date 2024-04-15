@@ -6,18 +6,14 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import css from "./HomePage.module.css";
 
 export default function HomePage() {
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [movies, setMovies] = useState([]);
 
-  const getTrendingMovies = async (page) => {
+  const getTrendingMovies = async (page = 1) => {
     try {
       setLoading(true);
-      setTotalPages(null);
       const resData = await fetchTrendingMovies(page);
-      setTotalPages(resData["total_pages"]);
       setMovies((prev) => [...prev, ...resData.results]);
       setMovies(resData.results);
     } catch (err) {
@@ -28,13 +24,12 @@ export default function HomePage() {
     }
   };
 
-  //get trending movies
   useEffect(() => {
-    getTrendingMovies(page);
-  }, [page]);
+    getTrendingMovies();
+  }, []);
 
   return (
-    <main>
+    <main className={css.main}>
       <h1 className={css.title}>Trending today</h1>
       <MovieList movies={movies} />
       {isLoading && <Loader />}

@@ -1,5 +1,3 @@
-import css from "./Loader.module.css";
-
 import { Hourglass } from "react-loader-spinner";
 
 const Loader = () => {
@@ -12,7 +10,6 @@ const Loader = () => {
       wrapperStyle={{}}
       wrapperClass=""
       colors={["#306cce", "#72a1ed"]}
-      className={css.loader}
     />
   );
 };

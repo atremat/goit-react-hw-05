@@ -2,12 +2,17 @@
   background-color: rgb(3, 37, 65);
   color: #fff;
   display: flex;
-  padding: 15px;
+  padding: 20px;
   font-size: 1.5rem;
 }
 
 .logo {
   margin-right: 50px;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
 }
 
 .link {
@@ -17,6 +22,5 @@
 }
 
 .active {
-  /* background-color: aqua; */
   color: burlywood;
 }

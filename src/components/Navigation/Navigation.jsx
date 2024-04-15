@@ -17,12 +17,18 @@ export default function Navigation() {
       </p>
 
       <nav className={css.nav}>
-        <NavLink to="/" className={buildLinkClass}>
-          Home
-        </NavLink>
-        <NavLink to="/movies" className={buildLinkClass}>
-          Movies
-        </NavLink>
+        <ul className={css.list}>
+          <li className={css.item}>
+            <NavLink to="/" className={buildLinkClass}>
+              Home
+            </NavLink>
+          </li>
+          <li className={css.item}>
+            <NavLink to="/movies" className={buildLinkClass}>
+              Movies
+            </NavLink>
+          </li>
+        </ul>
       </nav>
     </header>
   );

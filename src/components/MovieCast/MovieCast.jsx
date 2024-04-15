@@ -35,7 +35,7 @@ export default function MovieCast() {
 
   return (
     <section className={css.section}>
-      {credit && (
+      {credit && cast.length > 0 ? (
         <ul className={css.list}>
           {cast.map((actor) => {
             return (
@@ -51,6 +51,8 @@ export default function MovieCast() {
             );
           })}
         </ul>
+      ) : (
+        <p>Sorry, we have no information about cast.</p>
       )}
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}

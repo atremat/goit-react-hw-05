@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import css from "./MoviePage.module.css";
+import clsx from "clsx";
 
 const MoviePage = ({ movie }) => {
   const {
@@ -19,6 +20,10 @@ const MoviePage = ({ movie }) => {
 
   const year = fullDate.slice(0, 4);
 
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(css.link, isActive && css.active);
+  };
+
   return (
     <div className={css.container}>
       <section className={css.mainSection}>
@@ -26,7 +31,7 @@ const MoviePage = ({ movie }) => {
         <div className={css.mainInfo}>
           <h1 className={css.title}>
             {title}
-            <span className={css.year}> ({year})</span>
+            {year && <span className={css.year}> ({year})</span>}
           </h1>
 
           {rank !== 0 && (
@@ -46,28 +51,26 @@ const MoviePage = ({ movie }) => {
           <h2 className={css.overviewTitle}>Overview</h2>
           <p className={overview}>{overview}</p>
 
-          <h2 className={css.genresTitle}>Genres</h2>
-          <p className={css.genres}>
-            {genres.map((genre) => genre.name).join(", ")}
-          </p>
+          {genres.length > 0 && (
+            <>
+              <h2 className={css.genresTitle}>Genres</h2>
+              <p className={css.genres}>
+                {genres.map((genre) => genre.name).join(", ")}
+              </p>
+            </>
+          )}
         </div>
       </section>
       <section className={css.addSection}>
         <h2 className={css.addTitle}>Additional information</h2>
         <ul className={css.addList}>
           <li className={css.addItem}>
-            <NavLink
-              to="cast"
-              className={({ isActive }) => (isActive ? css.active : css.link)}
-            >
+            <NavLink to="cast" className={buildLinkClass}>
               Cast
             </NavLink>
           </li>
           <li className={css.addItem}>
-            <NavLink
-              to="reviews"
-              className={({ isActive }) => (isActive ? css.active : css.link)}
-            >
+            <NavLink to="reviews" className={buildLinkClass}>
               Reviews
             </NavLink>
           </li>

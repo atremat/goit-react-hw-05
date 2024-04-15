@@ -1,6 +1,3 @@
-.container {
-}
-
 .mainSection {
   display: flex;
 }
@@ -26,10 +23,10 @@
 }
 
 .link {
+  text-decoration: none;
   font-size: 1.2rem;
 }
 
 .active {
-  font-size: 1.2rem;
   color: #deb887;
 }
