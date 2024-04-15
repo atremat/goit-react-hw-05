@@ -39,7 +39,7 @@ export default function MoviesPage() {
 
   return (
     <main className={css.main}>
-      <SearchBar value={query} onSubmit={handleSearchPressed} />
+      <SearchBar onSubmit={handleSearchPressed} />
       <MovieList movies={movies} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}

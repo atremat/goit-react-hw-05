@@ -1,6 +1,6 @@
 import css from "./SearchBar.module.css";
 
-const SearchBar = ({ value, onSubmit }) => {
+const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const inputQuery = e.target.elements.query.value;
@@ -18,7 +18,6 @@ const SearchBar = ({ value, onSubmit }) => {
           className={css.input}
           name="query"
           type="text"
-          defaultValue={value}
           autoFocus
           placeholder="Search movie"
         />
