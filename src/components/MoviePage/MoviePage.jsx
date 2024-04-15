@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import css from "./MoviePage.module.css";
 
 const MoviePage = ({ movie }) => {
   const {
     poster_path: posterRelative,
-    backdrop_path: backdrop,
+    // backdrop_path: backdrop,
     title,
     overview,
     vote_average: rank,
@@ -12,7 +12,9 @@ const MoviePage = ({ movie }) => {
     budget,
     release_date: fullDate,
   } = movie;
-  const posterUrl = `https://image.tmdb.org/t/p/w500${posterRelative}`;
+
+  const IMG_BASE_URL = `https://image.tmdb.org/t/p/w500`;
+  const posterUrl = `${IMG_BASE_URL}${posterRelative}`;
   const year = fullDate.slice(0, 4);
 
   return (
@@ -26,9 +28,9 @@ const MoviePage = ({ movie }) => {
           </h1>
 
           <h2 className={css.rankTitle}>Rank</h2>
-          <p>{rank} / 10</p>
+          <p>{rank.toFixed(1)} / 10</p>
 
-          {budget && (
+          {budget !== 0 && (
             <>
               <h2 className={css.budgetTitle}>Budget</h2>
               <p className={css.budget}>{budget} $</p>
@@ -64,6 +66,7 @@ const MoviePage = ({ movie }) => {
             </NavLink>
           </li>
         </ul>
+        <Outlet />
       </section>
     </div>
   );

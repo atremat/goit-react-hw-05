@@ -17,15 +17,15 @@ export default function MovieDetailsPage() {
     getMovieById(movieId);
   }, [movieId]);
 
-  useEffect(() => {
-    console.log("movie: ", movie);
-  }, [movie]);
+  // useEffect(() => {
+  //   console.log("movie: ", movie);
+  // }, [movie]);
 
   const getMovieById = async (id) => {
     try {
       setLoading(true);
       const resData = await fetchMovieById(id);
-      console.log("resData: ", resData);
+      // console.log("resData: ", resData);
       setMovie(resData);
     } catch (err) {
       setIsError(true);

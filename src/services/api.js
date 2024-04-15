@@ -34,8 +34,32 @@ const fetchMovieById = async (id) => {
   const url = `${BASE_URL}${END_POINT}`;
 
   const response = await axios.get(url, options);
+  // console.log(response);
+  return response.data;
+};
+
+const fetchMovieCreditById = async (id) => {
+  const END_POINT = `/3/movie/${id}/credits`;
+  const url = `${BASE_URL}${END_POINT}`;
+
+  const response = await axios.get(url, options);
+  // console.log(response);
+  return response.data;
+};
+
+const fetchMovieReviewsById = async (id) => {
+  const END_POINT = `/3/movie/${id}/reviews?page=1`;
+  const url = `${BASE_URL}${END_POINT}`;
+
+  const response = await axios.get(url, options);
   console.log(response);
   return response.data;
 };
 
-export { fetchTrendingMovies, fetchMovieByName, fetchMovieById };
+export {
+  fetchTrendingMovies,
+  fetchMovieByName,
+  fetchMovieById,
+  fetchMovieCreditById,
+  fetchMovieReviewsById,
+};

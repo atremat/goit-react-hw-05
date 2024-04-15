@@ -1,8 +1,17 @@
 .container {
 }
+
 .mainSection {
   display: flex;
 }
+
 .poster {
   width: 300px;
+}
+
+.link {
+}
+
+.active {
+  background-color: blueviolet;
 }
