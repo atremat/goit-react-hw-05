@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import css from "./MoviePage.module.css";
 import clsx from "clsx";
+import { Suspense } from "react";
+import Loader from "../Loader/Loader";
 
 const MoviePage = ({ movie }) => {
   const {
@@ -75,7 +77,9 @@ const MoviePage = ({ movie }) => {
             </NavLink>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </section>
     </div>
   );

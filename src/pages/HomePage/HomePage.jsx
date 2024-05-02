@@ -10,22 +10,32 @@ export default function HomePage() {
   const [isError, setIsError] = useState(false);
   const [movies, setMovies] = useState([]);
 
-  const getTrendingMovies = async (page = 1) => {
-    try {
-      setLoading(true);
-      const resData = await fetchTrendingMovies(page);
-      setMovies((prev) => [...prev, ...resData.results]);
-      setMovies(resData.results);
-    } catch (err) {
-      setIsError(true);
-      console.log("error");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const controller = new AbortController();
+
+    const getTrendingMovies = async (page = 1) => {
+      try {
+        setLoading(true);
+        const resData = await fetchTrendingMovies({
+          abortController: controller,
+          page,
+        });
+        // setMovies(resData.results);
+        setMovies((prev) => [...prev, ...resData.results]);
+      } catch (err) {
+        if (err.code !== "ERR_CANCELED") {
+          setIsError(true);
+          console.log("error");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
     getTrendingMovies();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (

@@ -1,5 +1,12 @@
-.error {
+.wrapper {
   padding: 0 20px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.error {
   color: red;
   font-size: 1.4rem;
 }

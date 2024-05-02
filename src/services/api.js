@@ -11,9 +11,17 @@ const options = {
   },
 };
 
-const fetchTrendingMovies = async (page = 1) => {
+const fetchTrendingMovies = async ({ abortController, page = 1 }) => {
   const END_POINT = `/3/trending/movie/day?language=en-US&page=${page}`;
   const url = `${BASE_URL}${END_POINT}`;
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${API_TOKEN}`,
+    },
+    signal: abortController.signal,
+  };
 
   const response = await axios.get(url, options);
   // console.log(response);
