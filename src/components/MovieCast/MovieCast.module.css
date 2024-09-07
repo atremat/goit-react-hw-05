@@ -1,9 +1,20 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(1%);
+  padding: 20px 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
+  justify-content: center;
+}
+
 .item {
   padding: 20px 20px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
   list-style-type: none;
   margin-bottom: 30px;
+  width: 190px;
 }
 
 .img {

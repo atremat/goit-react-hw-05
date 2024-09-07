@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import css from "./Navigation.module.css";
+import { MdLocalMovies } from "react-icons/md";
 
 export default function Navigation() {
   const buildLinkClass = ({ isActive }) => {
@@ -10,10 +11,8 @@ export default function Navigation() {
   return (
     <header className={css.header}>
       <p className={css.logo}>
-        <span role="img" aria-label="movie icon">
-          🎞
-        </span>{" "}
-        Movies Search
+        <MdLocalMovies className={css.icon} size="2rem" />
+        <span className={css.logoText}>Movies Search</span>
       </p>
 
       <nav className={css.nav}>

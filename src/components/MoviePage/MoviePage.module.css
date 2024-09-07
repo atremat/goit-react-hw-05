@@ -1,5 +1,7 @@
 .mainSection {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .mainInfo {
@@ -11,7 +13,7 @@
 
 .poster {
   width: 300px;
-  margin-right: 20px;
+  margin: 0 auto;
   border-radius: 4px;
 }
 
@@ -29,4 +31,16 @@
 
 .active {
   color: #deb887;
+}
+
+@media screen and (min-width: 768px) {
+  .mainSection {
+    display: flex;
+    flex-direction: row;
+    gap: unset;
+  }
+
+  .poster {
+    margin: 0 20px 0 0;
+  }
 }
